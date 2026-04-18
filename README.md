@@ -13,3 +13,22 @@ There may be 2 download links as there's a *Download All 230 MB* button as well 
 3. I deleted `5y9wdsg2zt-2.zip`
 4. I extracted `Concrete Crack Images for Classification.rar` to `Concrete Crack Images for Classification` 
 5. Updated the `.gitignore`
+
+## Tree
+
+```
++---Appendix
++---Autoencoder
++---CNN
+ª   +---artifacts
+ª   ª   +---plots
++---Dataset Folder
+    +---Actual
+    ª   +---Concrete Crack Images for Classification
+    ª       +---Negative
+    ª       +---Positive
+    +---Original
+        +---Concrete Crack Images for Classification
+            +---Negative
+            +---Positive
+```
