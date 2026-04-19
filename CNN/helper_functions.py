@@ -13,7 +13,7 @@ from PIL import Image
 def seed_everything(seed: int) -> None:
 	random.seed(seed)
 	np.random.seed(seed)
-	torch.manual_seed(seed)
+	torch.manual_seed(seed) # type: ignore
 	torch.cuda.manual_seed_all(seed)
 	torch.backends.cudnn.deterministic = True
 	torch.backends.cudnn.benchmark = False
@@ -32,7 +32,7 @@ def compute_mean_std(frame: pd.DataFrame, batch_size: int, num_workers: int, dev
 
 	"================================================================="
 
-	class ImageDataset(Dataset):
+	class ImageDataset(Dataset[torch.Tensor]):
 		def __init__(self, frame: pd.DataFrame):
 			self.frame = frame.reset_index(drop=True)
 		
@@ -46,7 +46,7 @@ def compute_mean_std(frame: pd.DataFrame, batch_size: int, num_workers: int, dev
 				image = image.convert("RGB")
 				image = transforms.ToTensor()(pic=image)
 
-			return image
+			return torch.as_tensor(image, dtype=torch.float32)
 	
 	"================================================================="
 

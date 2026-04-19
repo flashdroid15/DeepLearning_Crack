@@ -33,7 +33,7 @@ BASE_CONFIG: dict[str, str | float | bool] = {
     "use_weighted_sampler": USE_WEIGHTED_SAMPLER,
 }
 
-HYPERPARAM_CANDIDATES = [
+HYPERPARAM_CANDIDATES: list[dict[str, float | bool]] = [
     {"learning_rate": 1e-3, "weight_decay": 1e-4, "dropout": 0.25, "use_weighted_sampler": True},
     {"learning_rate": 7e-4, "weight_decay": 1e-4, "dropout": 0.35, "use_weighted_sampler": True},
     {"learning_rate": 5e-4, "weight_decay": 5e-4, "dropout": 0.45, "use_weighted_sampler": True},
